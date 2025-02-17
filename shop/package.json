@@ -1,0 +1,42 @@
+{
+  "name": "playwrightautomation",
+  "version": "1.0.0",
+  "description": "- Playwright is a Node. js library that lets you script and automates test cases.This cross-browser automation is reliable and fast.",
+  "main": "index.js",
+  "scripts": {
+    "regresstiontest": "cross-env ENV=test FORCE_COLOR=0 npx cucumber-js || true",
+    "test": "cross-env ENV=test FORCE_COLOR=0 npx cucumber-js --tags '@smoke'|| true",
+    "smoketest": "cross-env ENV=test FORCE_COLOR=0 npx cucumber-js --tags '@smoke' || true",
+    "prodtest": "cross-env ENV=prod FORCE_COLOR=0 npx cucumber-js --tags '@smoke'|| true",
+    "postresult": "npx  ts-node ./report.ts",
+    "qatest-failed": "cross-env ENV=test npx cucumber-js -p rerun  @rerun.txt",
+    "prodtest-failed": "cross-env ENV=prod npx cucumber-js -p rerun  @rerun.txt",
+    "cleanup": "npx ts-node src/util/deleteFolder.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.9.0",
+    "@faker-js/faker": "^8.3.1",
+    "@playwright/test": "^1.44.1",
+    "@types/node": "^20.17.2",
+    "allure-playwright": "^2.10.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.56.0",
+    "fs-extra": "^11.2.0",
+    "multiple-cucumber-html-reporter": "^3.6.1",
+    "ts-node": "^10.9.2",
+    "winston": "^3.11.0"
+  },
+  "dependencies": {
+    "cucumber": "^6.0.7",
+    "exceljs": "^4.4.0",
+    "rimraf": "^6.0.1",
+    "xlsx": "^0.18.5"
+  },
+  "directories": {
+    "test": "test"
+  }
+}
