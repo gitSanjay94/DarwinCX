@@ -1,0 +1,2 @@
+id,client_id,ProductID,Brand,Name,Code,Channel,RenewalJourneyID,TestRenewalJourneyID,MarketingCodeInclude,MarketingCodeExclude,MediaType,AutoRenewalStatus,PurchaseType,Region,OrderSource,SpecialInstructionsCode,DoNotPromote,MultiCopyQtyMin,MultiCopyQtyMax,NumberOfIssuesMin,NumberOfIssuesMax,SubscriptionPriceMin,SubscriptionPriceMax,PricePerCopyMin,PricePerCopyMax,ValidFrom,ValidTo,isMilitary,ModelScore,ExpiryGrouping,ComboProductID,source_name,external_source_id
+377,9999,90,90,Fantastic Granite Soap,qa,,RD,,,,,,Single,,,,0,,,,,,,,,0,0,,0,0,0,,

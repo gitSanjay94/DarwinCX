@@ -1,0 +1,4 @@
+product_offer_number,name,source_name,external_source_id,included_product_number_1,included_external_source_id_1,included_product_number_2,included_external_source_id_2,included_product_number_3,included_external_source_id_3,included_product_number_4,included_external_source_id_4,included_product_number_5,included_external_source_id_5
+PO-1287,test,,,,,,,,,,,,
+PO-1281,GIFT - New Pricing Online 1st Gift $38/$58,,,PB-1554,,PB-1555,,,,,,,
+PO-1279,Product offer with bundle PB-1550 & item PI-1457,,,PB-1550,,,,,,,,,
