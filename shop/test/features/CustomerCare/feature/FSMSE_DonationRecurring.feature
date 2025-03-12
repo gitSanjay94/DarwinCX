@@ -1,4 +1,4 @@
-@smoke
+@smoke 
 Feature: Test FSMSE_DonationRecurring Page
          Validate FSMSE_DonationRecurringPage
 

@@ -101,5 +101,18 @@ Then('Enter values in Mailing and Billing Address form at CCB_CourageCAOrderMast
     logger.info('Mailing and Billing Address form has been successfully filled in.');
 });
 
+Then('Verify Email Send to Recipient', async function () {
+   this.CCB_CourageCAOrderMasterCCPage = await this.pomManager.getCCB_CourageCAOrderMasterCCPage();
+    await this.CCB_CourageCAOrderMasterCCPage.verifyEmailSentToSender();
+    logger.info('Clicked the Test Email Address');
+
+});
+
+Then('Verify Email Content', async function () {
+     this.CCB_CourageCAOrderMasterCCPage = await this.pomManager.getCCB_CourageCAOrderMasterCCPage();
+    const text = await this.CCB_CourageCAOrderMasterCCPage.validateEmailContentText();
+    expect(text).toEqual('Markup');
+    logger.info('Validate Required Text in Email Content');
+});
 
 

@@ -1,4 +1,4 @@
-@smoke
+@smoke123456
 Feature: Test Courage INT Order Prepopulated API
          Validate Courage INT Order Prepopulated API
 

@@ -1,4 +1,4 @@
-@smoke
+@smoke  @jkob
 Feature: Courage Special Cases - Courage 02HMTYPC Orders
         Validate Courage Special Cases - Courage 02HMTYPC Orders
 

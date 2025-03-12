@@ -1,4 +1,4 @@
-@smoke
+@smoke 
 Feature: Courage Special Cases - FSMSE Courage 02HCTYPC Orders
         Validate Courage Special Cases - FSMSE Courage 02HCTYPC Orders
 

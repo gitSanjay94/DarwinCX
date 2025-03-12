@@ -50,6 +50,7 @@ export class CCB_CourageCAOrderMasterCCPage {
   readonly recipientPhoneNumber1TF: Locator;
   readonly recipientEmail1TF: Locator;
   readonly optionalLabelMessageTF: Locator;
+  readonly emailContent: Locator;
  
 
 
@@ -66,7 +67,7 @@ export class CCB_CourageCAOrderMasterCCPage {
     this.userCityValue = page.locator('//input[@id="userCity" and @name="userCity" and @value=""]')
     this.userPostalCodeValue = page.locator('//input[@id="userPostalCode" and @name="userPostalCode" and @value=""]')
     this.userPhoneNumber = page.locator('//input[@id="userPhoneNumber"]')
-    this.userEmailValue = page.locator('//input[@id="userEmail" and @name="userEmail" and @value=""]')
+    this.userEmailValue = page.locator('//input[@id="userEmail" and @name="userEmail"]')
     this.userCountry = page.locator('#userCountry')
     this.userProvince = page.locator('select#userProvince')
     this.addGiftRecipientButton = page.getByRole('button', { name: 'Add Gift Recipient' })
@@ -105,6 +106,7 @@ export class CCB_CourageCAOrderMasterCCPage {
     this.recipientPhoneNumber1TF = page.locator('#recipientPhoneNumber1')
     this.recipientEmail1TF = page.locator('#recipientEmail1')
     this.optionalLabelMessageTF = page.locator('#recipientLabelMessage1')
+    this.emailContent =  page.frameLocator('iframe[name="html_msg_body"]').locator('text=Markup').first();
 
     
   }
@@ -298,8 +300,48 @@ async selectCountrySpecificSubscription() {
         await this.userCityValue.fill('Toronto');
         await this.userPostalCodeValue.fill('M2N4J5');
         await this.userPhoneNumber.fill('1234567890');
-        await this.userEmailValue.fill(faker.internet.exampleEmail());
+        const generatedEmail = 'testemailaddress' + faker.number.int({ min: 1, max: 100 }).toString() + '@mailinator.com';
+        await this.userEmailValue.fill(generatedEmail);
+        await this.userEmailValue.selectText();  // Select the text inside the input
+          await this.page.keyboard.press('Control+C')
+         return generatedEmail;
+
     }
+
+
+    async verifyEmailSentToSender(generatedEmail: string) {
+        try {
+
+            // Generate the email address using faker
+                       // Open Mailinator's website
+            await this.page.goto('https://www.mailinator.com');
+
+            // Wait for the search bar to be visible and search for the copied email address
+            await expect(this.page.locator("//input[@id='search']")).toBeVisible(); // You might need to inspect the selector based on Mailinator's DOM
+           await this.page.locator("//input[@id='search']").click();
+           await this.page.keyboard.press('Control+V')
+            // await this.page.locator("//input[@id='search']").fill(generatedEmail);  // Fill the copied email into the search field
+            await this.page.locator("//button[@value='Search for public inbox for free' and text()='GO']").click();  // Click the search button (inspect if the button has a different selector)
+
+            // Optionally, wait for the results to load
+            await this.page.getByRole('cell', { name: 'Thank you for subscription' }).click();
+
+            await this.page.locator('#email_pane').getByText('From', { exact: true }).click();
+            await this.page.getByText('noreply@darwin.cx', { exact: true }).click();
+            const emailLocator = this.page.locator('text=noreply@darwin.cx');
+            const emailText = await emailLocator.textContent();
+            console.log(emailText);  // Check the actual content
+            await expect(emailLocator).toBeVisible()
+
+            return generatedEmail;
+
+
+        } catch (error) {
+            logger.info(`Element not found or not visible: `, error);
+            console.error(`Element not found or not visible: `, error);
+        }
+    }
+
 async fillGiftRecipientMailingAddressCA() {
         await expect(this.recipientFirstName1lTF).toBeVisible({ timeout: 60000 });
         await this.recipientFirstName1lTF.scrollIntoViewIfNeeded();
@@ -313,6 +355,13 @@ async fillGiftRecipientMailingAddressCA() {
         await this.recipientAddress21TF.fill('45');
         await this.recipientPhoneNumber1TF.fill('1234567890');
         await this.recipientEmail1TF.fill(faker.internet.exampleEmail());
+    }
+
+    async validateEmailContentText() {
+        await expect(this.emailContent).toBeVisible({ timeout: 4000 })
+        let text = await this.emailContent.textContent();
+        text = text?.trim() || '';
+        return text;
     }
     }
 

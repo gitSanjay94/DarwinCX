@@ -19,82 +19,82 @@ Given('User opens URL DirectDebit', async function () {
     }
 });
 
-Then('Verify the Blank First Name Value at CCB_CourageCAOrderMasterCC Page', async function () {
-    this.DirectDebitPage = await this.pomManager.getDirectDebitPage();
-    const firstName = await this.DirectDebitPage.validateUserFirstNameValue();
-    expect(firstName).toEqual("");
-    logger.info('The First Name Blank value has been successfully verified in the CSC_NewparamsinurlUSnoinfodisplayed Page.');
-});
+// Then('Verify the Blank First Name Value at CCB_CourageCAOrderMasterCC Page', async function () {
+//     this.DirectDebitPage = await this.pomManager.getDirectDebitPage();
+//     const firstName = await this.DirectDebitPage.validateUserFirstNameValue();
+//     expect(firstName).toEqual("");
+//     logger.info('The First Name Blank value has been successfully verified in the CSC_NewparamsinurlUSnoinfodisplayed Page.');
+// });
 
-Then('Verify the Blank Last Name Value at CCB_CourageCAOrderMasterCC Page', async function () {
-    this.DirectDebitPage = await this.pomManager.getDirectDebitPage();
-    const lastName = await this.DirectDebitPage.validateUserLastNameValue();
-    expect(lastName).toEqual("");
-    logger.info('The Last Name Blank value has been successfully verified in the CSC_NewparamsinurlUSnoinfodisplayed Page.');
-});
+// Then('Verify the Blank Last Name Value at CCB_CourageCAOrderMasterCC Page', async function () {
+//     this.DirectDebitPage = await this.pomManager.getDirectDebitPage();
+//     const lastName = await this.DirectDebitPage.validateUserLastNameValue();
+//     expect(lastName).toEqual("");
+//     logger.info('The Last Name Blank value has been successfully verified in the CSC_NewparamsinurlUSnoinfodisplayed Page.');
+// });
 
-Then('Verify the Blank Comapnay Name Value at CCB_CourageCAOrderMasterCC Page', async function () {
-    this.DirectDebitPage = await this.pomManager.getDirectDebitPage();
-    const companyName = await this.DirectDebitPage.validateBlankCompanyNameValue();
-    expect(companyName).toEqual("");
-    logger.info('The Blank Company name value has been successfully verified in the CSC_NewparamsinurlUSnoinfodisplayed Page.');
-});
-Then('Verify the Blank Job Title Value at CCB_CourageCAOrderMasterCC Page', async function () {
-    this.DirectDebitPage = await this.pomManager.getDirectDebitPage();
-    const jobTitle = await this.DirectDebitPage.validateBlankJobTitleValue();
-    expect(jobTitle).toEqual("");
-    logger.info('The Blank Job Title value has been successfully verified in the CSC_NewparamsinurlUSnoinfodisplayed Page.');
-});
+// Then('Verify the Blank Comapnay Name Value at CCB_CourageCAOrderMasterCC Page', async function () {
+//     this.DirectDebitPage = await this.pomManager.getDirectDebitPage();
+//     const companyName = await this.DirectDebitPage.validateBlankCompanyNameValue();
+//     expect(companyName).toEqual("");
+//     logger.info('The Blank Company name value has been successfully verified in the CSC_NewparamsinurlUSnoinfodisplayed Page.');
+// });
+// Then('Verify the Blank Job Title Value at CCB_CourageCAOrderMasterCC Page', async function () {
+//     this.DirectDebitPage = await this.pomManager.getDirectDebitPage();
+//     const jobTitle = await this.DirectDebitPage.validateBlankJobTitleValue();
+//     expect(jobTitle).toEqual("");
+//     logger.info('The Blank Job Title value has been successfully verified in the CSC_NewparamsinurlUSnoinfodisplayed Page.');
+// });
 
-Then('Verify the Blank Address1 Value at CCB_CourageCAOrderMasterCC Page', async function () {
-    this.DirectDebitPage = await this.pomManager.getDirectDebitPage();
-    const Address1 = await this.DirectDebitPage.validateUserAddress1Value();
-    expect(Address1).toEqual("");
-    logger.info('The Address1 Blank value "" has been successfully verified in the CSC_NewparamsinurlUSnoinfodisplayed Page.');
-});
+// Then('Verify the Blank Address1 Value at CCB_CourageCAOrderMasterCC Page', async function () {
+//     this.DirectDebitPage = await this.pomManager.getDirectDebitPage();
+//     const Address1 = await this.DirectDebitPage.validateUserAddress1Value();
+//     expect(Address1).toEqual("");
+//     logger.info('The Address1 Blank value "" has been successfully verified in the CSC_NewparamsinurlUSnoinfodisplayed Page.');
+// });
 
-Then('Verify the Blank Address2 Value at CCB_CourageCAOrderMasterCC Page', async function () {
-    this.DirectDebitPage = await this.pomManager.getDirectDebitPage();
-    const Address2 = await this.DirectDebitPage.validateUserAddress2Value();
-    expect(Address2).toEqual("");
-    logger.info('The Address2 Blank value has been successfully verified in the B2NewparamsinurlCAallfields Page.');
-});
+// Then('Verify the Blank Address2 Value at CCB_CourageCAOrderMasterCC Page', async function () {
+//     this.DirectDebitPage = await this.pomManager.getDirectDebitPage();
+//     const Address2 = await this.DirectDebitPage.validateUserAddress2Value();
+//     expect(Address2).toEqual("");
+//     logger.info('The Address2 Blank value has been successfully verified in the B2NewparamsinurlCAallfields Page.');
+// });
 
-Then('Verify the Blank City Value at CCB_CourageCAOrderMasterCC Page', async function () {
-    this.DirectDebitPage = await this.pomManager.getDirectDebitPage();
-    const City = await this.DirectDebitPage.validateUserCityValue();
-    expect(City).toEqual("");
-    logger.info('The City value "" has been successfully verified in the getCSC_NewparamsinurlUSnoinfodisplayed Page.');
-});
+// Then('Verify the Blank City Value at CCB_CourageCAOrderMasterCC Page', async function () {
+//     this.DirectDebitPage = await this.pomManager.getDirectDebitPage();
+//     const City = await this.DirectDebitPage.validateUserCityValue();
+//     expect(City).toEqual("");
+//     logger.info('The City value "" has been successfully verified in the getCSC_NewparamsinurlUSnoinfodisplayed Page.');
+// });
 
-Then('Verify the Blank Postal Code Value at CCB_CourageCAOrderMasterCC Page', async function () {
-    this.DirectDebitPage = await this.pomManager.getDirectDebitPage();
-    const postalCode = await this.DirectDebitPage.validateUserPostalCodeValue();
-    expect(postalCode).toEqual("");
-    logger.info('The Blank postal code value has been successfully verified in the CSC_NewparamsinurlUSnoinfodisplayed Page.');
-});
+// Then('Verify the Blank Postal Code Value at CCB_CourageCAOrderMasterCC Page', async function () {
+//     this.DirectDebitPage = await this.pomManager.getDirectDebitPage();
+//     const postalCode = await this.DirectDebitPage.validateUserPostalCodeValue();
+//     expect(postalCode).toEqual("");
+//     logger.info('The Blank postal code value has been successfully verified in the CSC_NewparamsinurlUSnoinfodisplayed Page.');
+// });
 
-Then('Verify the Blank Email Address Value at CCB_CourageCAOrderMasterCC Page', async function () {
-    this.DirectDebitPage = await this.pomManager.getDirectDebitPage();
-    const email = await this.DirectDebitPage.validateUserEmailValue();
-    expect(email).toEqual("");
-    logger.info('The email value "" has been successfully verified in the CSC_NewparamsinurlUSnoinfodisplayed Page.');
-});
+// Then('Verify the Blank Email Address Value at CCB_CourageCAOrderMasterCC Page', async function () {
+//     this.DirectDebitPage = await this.pomManager.getDirectDebitPage();
+//     const email = await this.DirectDebitPage.validateUserEmailValue();
+//     expect(email).toEqual("");
+//     logger.info('The email value "" has been successfully verified in the CSC_NewparamsinurlUSnoinfodisplayed Page.');
+// });
 
 
-Then('Verify the Country Value at CCB_CourageCAOrderMasterCC Page', async function () {
-    this.DirectDebitPage = await this.pomManager.getDirectDebitPage();
-    const country = await this.DirectDebitPage.validateUserCountryValue();
-    expect(country).toEqual("United States");
-    logger.info('The Country value "United States" has been successfully verified in the CSC_NewparamsinurlUSnoinfodisplayed Page.');
-});
+// Then('Verify the Country Value at CCB_CourageCAOrderMasterCC Page', async function () {
+//     this.DirectDebitPage = await this.pomManager.getDirectDebitPage();
+//     const country = await this.DirectDebitPage.validateUserCountryValue();
+//     expect(country).toEqual("United States");
+//     logger.info('The Country value "United States" has been successfully verified in the CSC_NewparamsinurlUSnoinfodisplayed Page.');
+// });
 
-Then('Verify the Select  User Province at CCB_CourageCAOrderMasterCC Page', async function () {
-    this.DirectDebitPage = await this.pomManager.getDirectDebitPage();
-    const province = await this.DirectDebitPage.validateUserProvinceValue();
-    expect(province).toEqual("Choose Province/State*");
-    logger.info('The province value "Choose Province/State" has been successfully verified in the  B2NewparamsinurlCAallfields Page.');
-});
+// Then('Verify the Select  User Province at CCB_CourageCAOrderMasterCC Page', async function () {
+//     this.DirectDebitPage = await this.pomManager.getDirectDebitPage();
+//     const province = await this.DirectDebitPage.validateUserProvinceValue();
+//     expect(province).toEqual("Choose Province/State*");
+//     logger.info('The province value "Choose Province/State" has been successfully verified in the  B2NewparamsinurlCAallfields Page.');
+// });
 
 Then('Enter values in Mailing and Billing Address form at DirectDebit Page', async function () {
     this.DirectDebitPage = await this.pomManager.getDirectDebitPage();

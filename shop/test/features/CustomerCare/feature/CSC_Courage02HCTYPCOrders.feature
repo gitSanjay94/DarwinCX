@@ -1,4 +1,4 @@
-@smoke
+@smoke @jkob
 Feature: Courage Special Cases - Courage 02HCTYPC Orders
         Validate Courage Special Cases - Courage 02HCTYPC Orders
 
@@ -10,6 +10,8 @@ Feature: Courage Special Cases - Courage 02HCTYPC Orders
     When Enter valid payment details "4242 4242 4242 4242" and "1025"  and "123"
     And Click on Place Order button
     Then Validate TRANSACTION SUCCESSFUL text
+    Then Verify Email Send to Recipients
+    Then Verify Email Contents
 
   Scenario: Courage Special Cases - 2 Courage 02HCTYPC Gift Order
     Given User opens Courage Special Cases - Courage 02HCTYPC Orders

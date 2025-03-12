@@ -80,3 +80,4 @@ export const CPBP_PrepopulatedCCPayment_LANDING_URL_ENDPOINT = 'pay-bill?purchas
 export const DirectDebitUrl = 'https://9991-20-05f0198ab-stage-shop.darwin.cx';
 export const EB_Golf_Url = 'https://5050-20-1c16a6294-stage-shop.darwin.cx/I4YAGFTG';
 export const CyberSourcePageUrl = 'https://7150-26-2d6383266-stage-shop.darwin.cx/I3QANA3M';
+export const MySite_v2PageUrl = 'https://stg-sso-lookup.courage.cx/app/sso/?target=login&service=myv2';

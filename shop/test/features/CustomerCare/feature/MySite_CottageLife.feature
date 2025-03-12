@@ -2,7 +2,6 @@
 Feature: Test MySite_CottageLife
          Validate MySite_CottageLife
 
-
   Scenario: MySite_CottageLife Acc+PO Box
     Given User opens URL MySite_CottageLife
     Then Validate "Account Number Or Email Address" text

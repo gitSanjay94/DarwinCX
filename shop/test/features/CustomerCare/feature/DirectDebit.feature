@@ -1,7 +1,11 @@
- @smoke005566
+
+ @smoke
+
+
+
 Feature: Testing Pre-Authorized Debit Transactions through the new Stripe Payment Element
 
- 
+
   Scenario: Test Pre-Authorized Debit Transactions with sort code 108800 and account number 00012345
     Given User opens URL DirectDebit
     Then Enter values in Mailing and Billing Address form at DirectDebit Page

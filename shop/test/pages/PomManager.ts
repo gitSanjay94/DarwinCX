@@ -125,6 +125,7 @@ import { CouragePayBillPaymentsPage } from './CouragePayBillPaymentsPage'
 import { DirectDebitPage } from './DirectDebitPage'
 import { EB_GolfPage } from './EB_GolfPage'
 import { CyberSourcePage } from './CyberSourcePage'
+import { MySite_v2Page } from './MySite_v2Page'
 // import { Coupon_OrderPage } from './Coupon_OrderPage'
 
 
@@ -253,6 +254,7 @@ export class PomManager {
     DirectDebitPage: DirectDebitPage;
     EB_GolfPage: EB_GolfPage;
     CyberSourcePage: CyberSourcePage;
+    MySite_v2Page: MySite_v2Page;
 
 
 
@@ -394,6 +396,7 @@ export class PomManager {
         this.DirectDebitPage = new DirectDebitPage(page)
         this.EB_GolfPage = new EB_GolfPage(page)
         this.CyberSourcePage = new CyberSourcePage(page)
+        this.MySite_v2Page = new MySite_v2Page(page)
         // this.Coupon_OrderPage = new Coupon_OrderPage(page);
 
       
@@ -902,6 +905,8 @@ export class PomManager {
  getCyberSourcePage() {
         return this.CyberSourcePage;
     }
-
+getMySite_v2Page() {
+        return this.MySite_v2Page;
+    }
 
 }

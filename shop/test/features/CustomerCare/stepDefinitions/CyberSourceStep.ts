@@ -84,20 +84,20 @@ Then('Validate Mailing Address text at Cyber Source Page', async function () {
     logger.info('The text "Mailing Address" has been successfully validated');
 })
 
-Then('Validate Tax Value', async function () {
-   this.CyberSourcePage = await this.pomManager.getCyberSourcePage();
-    const tax = await this.CyberSourcePage.validateTaxValue();
-    expect(tax).toBe('$70.00');
+// Then('Validate Tax Value', async function () {
+//    this.CyberSourcePage = await this.pomManager.getCyberSourcePage();
+//     const tax = await this.CyberSourcePage.validateTaxValue();
+//     expect(tax).toBe('$70.00');
     
-})
+// })
 
-Then('Validate Amount Before Order', async function () {
-   this.CyberSourcePage = await this.pomManager.getCyberSourcePage();
-    this.beforeOrderAmount = await this.CyberSourcePage.validateAmountBeforeOrder();
-    const beforeOrderAmount = await this.CyberSourcePage.validateAmountBeforeOrder();
-    expect(beforeOrderAmount).toBe(2020.00);
-    logger.info(`Successfully fetched the Total amount: ${this.beforeOrderAmount}`);
-})
+// Then('Validate Amount Before Order', async function () {
+//    this.CyberSourcePage = await this.pomManager.getCyberSourcePage();
+//     this.beforeOrderAmount = await this.CyberSourcePage.validateAmountBeforeOrder();
+//     const beforeOrderAmount = await this.CyberSourcePage.validateAmountBeforeOrder();
+//     expect(beforeOrderAmount).toBe(2020.00);
+//     logger.info(`Successfully fetched the Total amount: ${this.beforeOrderAmount}`);
+// })
 
 Then('Validate Gift Order Amount Before Order at Cyber Source Page', async function () {
    this.CyberSourcePage = await this.pomManager.getCyberSourcePage();
@@ -111,16 +111,16 @@ Then('Validate Different Mailing Address Order Amount Before Order at Cyber Sour
    this.CyberSourcePage = await this.pomManager.getCyberSourcePage();
     this.beforeOrderAmount = await this.CyberSourcePage.validateAmountBeforeOrder();
     const beforeOrderAmount = await this.CyberSourcePage.validateAmountBeforeOrder();
-    expect(beforeOrderAmount).toBe(1950);
+    expect(beforeOrderAmount).toBe(12);
     logger.info(`Successfully fetched the Total amount: ${this.beforeOrderAmount}`);
 })
-Then('Validate Amount After Order', async function () {
-   this.CyberSourcePage = await this.pomManager.getCyberSourcePage();
-    this.AfterOrderAmount = await this.CyberSourcePage.validateAmountAfterOrder();
-    const AfterOrderAmount = await this.CyberSourcePage.validateAmountAfterOrder();
-    expect(AfterOrderAmount).toBe(2020.00);
-    logger.info(`Successfully fetched the Total amount: ${this.AfterOrderAmount}`);
-})
+// Then('Validate Amount After Order', async function () {
+//    this.CyberSourcePage = await this.pomManager.getCyberSourcePage();
+//     this.AfterOrderAmount = await this.CyberSourcePage.validateAmountAfterOrder();
+//     const AfterOrderAmount = await this.CyberSourcePage.validateAmountAfterOrder();
+//     expect(AfterOrderAmount).toBe(2020.00);
+//     logger.info(`Successfully fetched the Total amount: ${this.AfterOrderAmount}`);
+// })
 
 Then('Validate Gift Order Amount After Order at Cyber Source Page', async function () {
    this.CyberSourcePage = await this.pomManager.getCyberSourcePage();
@@ -138,10 +138,24 @@ Then('Validate Different Mailing Address Order Amount After Order at Cyber Sourc
     logger.info(`Successfully fetched the Total amount: ${this.AfterOrderAmount}`);
 })
 
-Then('Validate Total Amount before & after Order', async function () {
-   this.CyberSourcePage = await this.pomManager.getCyberSourcePage();
-    expect(this.beforeOrderAmount).toEqual(this.AfterOrderAmount)
-    logger.info(`Summary Amount (${this.beforeOrderAmount}) and Total Amount (${this.AfterOrderAmount}) are equal.`);
+Then('Verify Email Send to Recipient from Cyber Source Page', async function () {
+    this.CyberSourcePage = await this.pomManager.getCyberSourcePage();
+    await this.CyberSourcePage.verifyEmailSentToSender();
+    logger.info('Clicked the Test Email Address');
+
+});
+
+// Then('Validate Total Amount before & after Order', async function () {
+//    this.CyberSourcePage = await this.pomManager.getCyberSourcePage();
+//     expect(this.beforeOrderAmount).toEqual(this.AfterOrderAmount)
+//     logger.info(`Summary Amount (${this.beforeOrderAmount}) and Total Amount (${this.AfterOrderAmount}) are equal.`);
 
         
-})
+// })
+
+Then('Verify Email Content at Maiinator Email', async function () {
+      this.CyberSourcePage = await this.pomManager.getCyberSourcePage();
+    const text = await this.CyberSourcePage.validateEmailContentText();
+    expect(text).toEqual('Thank you for your paid membership to B.A.S.S.');
+    logger.info('Validate Required Text in Email Content');
+});

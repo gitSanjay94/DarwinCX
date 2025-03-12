@@ -96,3 +96,17 @@ When('Enter valid payment details {string} and {string}  and {string}', async fu
     await this.CSC_Courage02HCTYPCOrdersPage.enterCorrectPaymentDetails(cardnumb, cardexp, cvc)
     logger.info(`Entering valid payment details: Card Number - ${cardnumb}, Expiry Date - ${cardexp}, CVV - ${cvc}`);
 })
+
+Then('Verify Email Send to Recipients', async function () {
+   this.CSC_Courage02HCTYPCOrdersPage = await this.pomManager.getCSC_Courage02HCTYPCOrdersPage();
+    await this.CSC_Courage02HCTYPCOrdersPage.verifyEmailSentToSender();
+    logger.info('Clicked the Test Email Address');
+
+});
+
+Then('Verify Email Contents', async function () {
+    this.CSC_Courage02HCTYPCOrdersPage = await this.pomManager.getCSC_Courage02HCTYPCOrdersPage();
+    const text = await this.CSC_Courage02HCTYPCOrdersPage.validateEmailContentText();
+    expect(text).toEqual('Markup');
+    logger.info('Validate Required Text in Email Content');
+});

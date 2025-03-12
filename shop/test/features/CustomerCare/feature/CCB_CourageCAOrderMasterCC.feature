@@ -1,4 +1,4 @@
-@smoke
+@smoke 
 Feature: Test MasterCard payment option for Canadian orders
          Validate Order is processed successfully with MasterCard.
 
@@ -16,7 +16,7 @@ Feature: Test MasterCard payment option for Canadian orders
     Then  Verify the Blank Email Address Value at CCB_CourageCAOrderMasterCC Page
     Then  Verify the Country Value at CCB_CourageCAOrderMasterCC Page
     Then  Verify the Select  User Province at CCB_CourageCAOrderMasterCC Page
-   
+ 
     Scenario: Test MasterCard payment option for Canadian orders
     Given User opens URL CCB_CourageCAOrderMasterCC
     Then  Enter values in Mailing and Billing Address form at CCB_CourageCAOrderMasterCC Page
@@ -27,6 +27,8 @@ Feature: Test MasterCard payment option for Canadian orders
     And   Select the Canada Country Available Subscription Option
     And   Click on Place Order button 
     Then  Validate TRANSACTION SUCCESSFUL text
+    Then Verify Email Send to Recipient
+    Then Verify Email Content
 
 
 

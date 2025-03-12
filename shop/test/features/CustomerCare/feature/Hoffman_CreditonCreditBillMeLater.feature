@@ -1,4 +1,4 @@
-@smoke
+@smoke 
 Feature: Test Hoffman_CreditonCreditBillMeLaterPage Order
          Verify print and digital order with upsell and taxes Order Process
 

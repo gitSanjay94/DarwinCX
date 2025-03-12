@@ -1,4 +1,4 @@
-@smoke
+@smoke 
 Feature: Test FSMSE_HoffmanCreditonCreditBillMeLaterPage Order
          Verify print and digital order with upsell and taxes Order Process
          #Failing due to Bill Me Later is disabled

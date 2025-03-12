@@ -66,6 +66,7 @@ export class CSC_Courage02HCTYPCOrdersPage {
     readonly recipientProvince: Locator;
     readonly recipientCity: Locator;
     readonly recipientPostalCode: Locator;
+    readonly emailContent: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -128,6 +129,7 @@ export class CSC_Courage02HCTYPCOrdersPage {
         this.recipientProvince = page.locator('#recipientProvince1')
         this.recipientCity = page.locator('#recipientCity1')
         this.recipientPostalCode = page.locator('#recipientPostalCode1')
+         this.emailContent =  page.frameLocator('iframe[name="html_msg_body"]').locator('text=Markup').first();
 
     }
 
@@ -194,7 +196,12 @@ export class CSC_Courage02HCTYPCOrdersPage {
         await this.page.waitForTimeout(6000);
         await this.userAddress2TF.fill('45');
         await this.userPhoneNumberTF.fill('1234567890');
-        await this.userEmailTF.fill(faker.internet.exampleEmail());
+        // await this.userEmailTF.fill(faker.internet.exampleEmail());
+         const generatedEmail = 'testemailaddress' + faker.number.int({ min: 1, max: 100 }).toString() + '@mailinator.com';
+        await this.userEmailTF.fill(generatedEmail);
+        await this.userEmailTF.selectText();  // Select the text inside the input
+          await this.page.keyboard.press('Control+C')
+         return generatedEmail;
     }
 
     async fillMailingAddress() {
@@ -274,6 +281,45 @@ export class CSC_Courage02HCTYPCOrdersPage {
         // Scroll into view if needed and interact with the card CVC field
         await cardCvcLocator.scrollIntoViewIfNeeded();
         await cardCvcLocator.fill(cvc);
+    }
+
+        async verifyEmailSentToSender(generatedEmail: string) {
+        try {
+
+            // Generate the email address using faker
+                       // Open Mailinator's website
+            await this.page.goto('https://www.mailinator.com');
+
+            // Wait for the search bar to be visible and search for the copied email address
+            await expect(this.page.locator("//input[@id='search']")).toBeVisible(); // You might need to inspect the selector based on Mailinator's DOM
+           await this.page.locator("//input[@id='search']").click();
+           await this.page.keyboard.press('Control+V')
+            // await this.page.locator("//input[@id='search']").fill(generatedEmail);  // Fill the copied email into the search field
+            await this.page.locator("//button[@value='Search for public inbox for free' and text()='GO']").click();  // Click the search button (inspect if the button has a different selector)
+
+            // Optionally, wait for the results to load
+            await this.page.getByRole('cell', { name: 'Thank you for subscription' }).click();
+
+            await this.page.locator('#email_pane').getByText('From', { exact: true }).click();
+            await this.page.getByText('noreply@darwin.cx', { exact: true }).click();
+            const emailLocator = this.page.locator('text=noreply@darwin.cx');
+            const emailText = await emailLocator.textContent();
+            console.log(emailText);  // Check the actual content
+            await expect(emailLocator).toBeVisible()
+
+            return generatedEmail;
+
+
+        } catch (error) {
+            logger.info(`Element not found or not visible: `, error);
+            console.error(`Element not found or not visible: `, error);
+        }
+    }
+async validateEmailContentText() {
+        await expect(this.emailContent).toBeVisible({ timeout: 4000 })
+        let text = await this.emailContent.textContent();
+        text = text?.trim() || '';
+        return text;
     }
 
    

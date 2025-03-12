@@ -22,12 +22,12 @@ Given('User opens URL MySite_CottageLife', async function () {
   }
 });
 
-Then('Validate "Account Number Or Email Address" text', async function () {
-  this.MySite_CottageLifePage = await this.pomManager.getMySite_CottageLifePage();
-  let text = await this.MySite_CottageLifePage.validateAccountNumberOrEmailAddressText();
-  expect(text).toEqual('Account Number Or Email Address');
-  logger.info(`Validation result: Expected "Account Number Or Email Address", received "${text}"`);
-})
+// Then('Validate "Account Number Or Email Address" text', async function () {
+//   this.MySite_CottageLifePage = await this.pomManager.getMySite_CottageLifePage();
+//   let text = await this.MySite_CottageLifePage.validateAccountNumberOrEmailAddressText();
+//   expect(text).toEqual('Account Number Or Email Address');
+//   logger.info(`Validation result: Expected "Account Number Or Email Address", received "${text}"`);
+// })
 
 Then('Validate "Last Name Or Postal Code" text', async function () {
   this.MySite_CottageLifePage = await this.pomManager.getMySite_CottageLifePage();

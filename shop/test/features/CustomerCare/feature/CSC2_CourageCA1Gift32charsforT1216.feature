@@ -16,7 +16,7 @@ Feature: Test Courage CA 1 Gift functionality for T1216
   #   Then  Verify the Blank Email Address Value at CSC2_CourageCA1Gift32charsforT1216 Page
   #   Then  Verify the Country Value at CSC2_CourageCA1Gift32charsforT1216 Page
   #   Then  Verify the Select  User Province at CSC2_CourageCA1Gift32charsforT1216 Page
-   
+
     Scenario: Courage Special Cases - 2 CSC2_CourageCA1Gift32charsforT1216 Order
     Given User opens URL CSC2_CourageCA1Gift32charsforT1216
     And Select the Canada Country Available Subscription Option

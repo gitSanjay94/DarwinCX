@@ -1,4 +1,4 @@
- @smoke
+ @smoke 
 Feature: Test Hoffman_CreditonBadCreditCard Order
          Verify CC Declined due to invalid Card Number
 

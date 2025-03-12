@@ -1,7 +1,7 @@
 import { chromium, LaunchOptions, firefox, webkit } from 'playwright/test'
 import process from 'process';
 
-let headless: boolean = false
+let headless: boolean = true
 // const options: LaunchOptions = {   
 //     headless: headless
 // }

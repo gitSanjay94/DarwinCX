@@ -110,6 +110,12 @@ Then('Select Bill Me Later Payment Option', async function () {
     logger.info('Mailing and Billing Address form has been successfully filled in.');
 });
 
+Then('Verify that Email Send to Recipient', async function () {
+    this.CCB_CourageCAOrderBillMePage = await this.pomManager.getCCB_CourageCAOrderBillMePage();
+    await this.CCB_CourageCAOrderBillMePage.verifyEmailSentToSender();
+    logger.info('Mailing and Billing Address form has been successfully filled in.');
+});
+
 
 
 

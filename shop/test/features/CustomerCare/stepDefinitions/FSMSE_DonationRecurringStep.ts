@@ -111,7 +111,7 @@ When('Click Donate button at FSMSE_DonationRecurring Page', async function () {
 Then('Validate Donor Name as "anonymous" at FSMSE_DonationRecurring Page', async function () {
     this.FSMSE_DonationRecurringPage = await this.pomManager.getFSMSE_DonationRecurringPage();
     let text = await this.FSMSE_DonationRecurringPage.validateDonorName();
-    expect(text).toContain('Donation will be under the name of Alfonso Herman');
+    expect(text).toContain('Donation will be under the name of anonymous');
     logger.info('Donor name validated successfully as anonymous.');
 })
 
